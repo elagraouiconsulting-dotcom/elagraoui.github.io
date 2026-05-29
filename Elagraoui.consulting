@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Elagraoui Consulting - Consulenza Energetica B2B a Pesaro Urbino e Marche. Ottimizzazione bollette, audit energetici, risparmio garantito.">
+    <meta name="keywords" content="consulenza energetica, bollette, risparmio energetico, Pesaro, Urbino, Marche, B2B, audit energetico">
+    <title>Elagraoui Consulting | Consulenza Energetica B2B</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:Arial,sans-serif;line-height:1.6;color:#1a1a2e;overflow-x:hidden}
+        
+        .hero{background:linear-gradient(135deg,#0a0f1a 0%,#1a3a5c 50%,#1a5276 100%);color:white;padding:80px 20px;text-align:center;position:relative}
+        .hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:50px;background:#f0f2f5;clip-path:polygon(0 100%,100% 0,100% 100%)}
+        .hero h1{font-size:36px;margin-bottom:10px;animation:fadeIn 1s}
+        .hero p{font-size:18px;opacity:0.9;max-width:600px;margin:0 auto 20px}
+        .hero .btn{display:inline-block;background:#27ae60;color:white;padding:14px 30px;border-radius:8px;text-decoration:none;font-weight:700;font-size:16px;margin:10px;transition:transform 0.3s}
+        .hero .btn:hover{transform:translateY(-3px)}
+        .hero .btn-outline{background:transparent;border:2px solid white}
+        
+        @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+        
+        nav{background:white;padding:15px 30px;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,0.1);display:flex;justify-content:space-between;align-items:center}
+        nav .logo{font-size:22px;font-weight:700;color:#1a3a5c;text-decoration:none}
+        nav .logo span{color:#27ae60}
+        nav a{color:#1a3a5c;text-decoration:none;margin-left:20px;font-weight:500;font-size:14px}
+        nav a:hover{color:#27ae60}
+        
+        section{padding:60px 20px}
+        .container{max-width:1100px;margin:0 auto}
+        h2{font-size:30px;color:#1a3a5c;text-align:center;margin-bottom:15px}
+        .subtitle{text-align:center;color:#7f8c8d;margin-bottom:40px;font-size:16px}
+        
+        .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px}
+        .card{background:white;padding:30px;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,0.08);text-align:center;transition:transform 0.3s}
+        .card:hover{transform:translateY(-5px)}
+        .card .icon{font-size:40px;margin-bottom:15px}
+        .card h3{color:#1a3a5c;margin-bottom:10px}
+        .card p{color:#7f8c8d;font-size:14px}
+        
+        .stats{background:#1a3a5c;color:white;padding:60px 20px;text-align:center}
+        .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;max-width:900px;margin:0 auto}
+        .stat h3{font-size:40px;color:#27ae60}
+        .stat p{font-size:14px;opacity:0.8}
+        
+        .contact{background:#f0f2f5}
+        .contact-info{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;text-align:center}
+        .contact-card{background:white;padding:25px;border-radius:12px;box-shadow:0 3px 15px rgba(0,0,0,0.06)}
+        .contact-card .icon{font-size:30px;margin-bottom:10px}
+        
+        footer{background:#0a0f1a;color:white;text-align:center;padding:30px;font-size:13px}
+        footer a{color:#27ae60;text-decoration:none}
+        
+        .whatsapp-float{position:fixed;bottom:20px;right:20px;background:#25D366;color:white;width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 5px 20px rgba(37,211,102,0.4);z-index:999;text-decoration:none;animation:pulse 2s infinite}
+        @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+        
+        @media(max-width:768px){
+            .hero h1{font-size:26px}
+            nav a{display:none}
+            nav::after{content:'☰';font-size:24px;cursor:pointer}
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="#" class="logo">⚡ Elagraoui<span>Consulting</span></a>
+    <div>
+        <a href="#servizi">Servizi</a>
+        <a href="#chi-siamo">Chi Siamo</a>
+        <a href="#risultati">Risultati</a>
+        <a href="#contatti">Contatti</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <h1>Risparmia sulle Bollette Energetiche</h1>
+    <p>Consulenza B2B specializzata per aziende di Pesaro, Urbino e Marche. Audit gratuiti, ottimizzazione tariffe, risparmio garantito.</p>
+    <a href="#contatti" class="btn">Richiedi Audit Gratuito</a>
+    <a href="#servizi" class="btn btn-outline">Scopri i Servizi</a>
+</section>
+
+<section id="servizi">
+    <div class="container">
+        <h2>I Nostri Servizi</h2>
+        <p class="subtitle">Soluzioni complete per l'ottimizzazione energetica della tua azienda</p>
+        <div class="services">
+            <div class="card">
+                <div class="icon">📊</div>
+                <h3>Audit Energetico</h3>
+                <p>Analisi completa dei consumi con report personalizzato e stima del risparmio ottenibile.</p>
+            </div>
+            <div class="card">
+                <div class="icon">💰</div>
+                <h3>Ottimizzazione Tariffe</h3>
+                <p>Confronto tra tariffe variabili e fisse per individuare la soluzione più vantaggiosa.</p>
+            </div>
+            <div class="card">
+                <div class="icon">📋</div>
+                <h3>Gestione Bollette</h3>
+                <p>Monitoraggio continuo delle bollette con alert su anomalie e scadenze contrattuali.</p>
+            </div>
+            <div class="card">
+                <div class="icon">🌱</div>
+                <h3>Transizione Energetica</h3>
+                <p>Consulenza per il passaggio a fonti rinnovabili e efficientamento energetico.</p>
+            </div>
+            <div class="card">
+                <div class="icon">🏢</div>
+                <h3>Consulenza B2B</h3>
+                <p>Servizio dedicato ad aziende, hotel, ristoranti, industrie e attività commerciali.</p>
+            </div>
+            <div class="card">
+                <div class="icon">📱</div>
+                <h3>Report Digitale</h3>
+                <p>Report strategico inviato via email con analisi dettagliata e raccomandazioni.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="stats" id="risultati">
+    <div class="container">
+        <h2 style="color:white">I Nostri Risultati</h2>
+        <p class="subtitle" style="color:#a0c4e8">Dati aggiornati sul territorio di Pesaro Urbino e Marche</p>
+        <div class="stats-grid">
+            <div class="stat"><h3>50+</h3><p>Aziende Analizzate</p></div>
+            <div class="stat"><h3>€500k+</h3><p>Risparmio Stimato</p></div>
+            <div class="stat"><h3>95%</h3><p>Clienti Soddisfatti</p></div>
+            <div class="stat"><h3>10+</h3><p>Settori Coperti</p></div>
+        </div>
+    </div>
+</section>
+
+<section id="chi-siamo">
+    <div class="container">
+        <h2>Chi Siamo</h2>
+        <p class="subtitle">Elagraoui Consulting è il partner ideale per le aziende che vogliono ridurre i costi energetici</p>
+        <div class="card" style="max-width:700px;margin:0 auto;text-align:left">
+            <p style="margin-bottom:10px"><strong>Elagraoui Consulting</strong> opera nel territorio di <strong>Pesaro, Urbino e Marche</strong> offrendo servizi di consulenza energetica B2B.</p>
+            <p style="margin-bottom:10px">Il nostro obiettivo è supportare le imprese nell'<strong>ottimizzazione dei costi</strong> legati alle utenze e nell'individuazione di strategie su misura per la <strong>transizione energetica</strong>.</p>
+            <p>Seguiamo con interesse le aziende del territorio che si distinguono per qualità e radicamento locale, offrendo <strong>consulenza personalizzata e senza impegno</strong>.</p>
+        </div>
+    </div>
+</section>
+
+<section class="contact" id="contatti">
+    <div class="container">
+        <h2>Contattaci</h2>
+        <p class="subtitle">Richiedi un audit gratuito o fissa una consulenza senza impegno</p>
+        <div class="contact-info">
+            <div class="contact-card">
+                <div class="icon">📧</div>
+                <h3>Email</h3>
+                <p>consulente@elagraoui.it</p>
+            </div>
+            <div class="contact-card">
+                <div class="icon">📱</div>
+                <h3>Telefono</h3>
+                <p>+39 388 3228335</p>
+            </div>
+            <div class="contact-card">
+                <div class="icon">📍</div>
+                <h3>Sede</h3>
+                <p>Pesaro Urbino, Marche</p>
+            </div>
+            <div class="contact-card">
+                <div class="icon">🌐</div>
+                <h3>Web</h3>
+                <p>www.elagraoui.it</p>
+            </div>
+        </div>
+        
+        <div style="max-width:500px;margin:30px auto 0;background:white;padding:25px;border-radius:12px;box-shadow:0 3px 15px rgba(0,0,0,0.06)">
+            <h3 style="text-align:center;margin-bottom:15px">Richiedi un Audit Gratuito</h3>
+            <form action="https://formspree.io/f/your-form-id" method="POST">
+                <input name="nome" placeholder="Nome e Cognome" required style="width:100%;padding:10px;margin-bottom:10px;border:1px solid #ddd;border-radius:6px;font-family:inherit">
+                <input name="azienda" placeholder="Nome Azienda" style="width:100%;padding:10px;margin-bottom:10px;border:1px solid #ddd;border-radius:6px;font-family:inherit">
+                <input name="email" placeholder="Email" type="email" required style="width:100%;padding:10px;margin-bottom:10px;border:1px solid #ddd;border-radius:6px;font-family:inherit">
+                <input name="telefono" placeholder="Telefono" style="width:100%;padding:10px;margin-bottom:10px;border:1px solid #ddd;border-radius:6px;font-family:inherit">
+                <textarea name="messaggio" placeholder="Descrivi brevemente la tua attività e i tuoi consumi" rows="3" style="width:100%;padding:10px;margin-bottom:10px;border:1px solid #ddd;border-radius:6px;font-family:inherit"></textarea>
+                <button type="submit" style="width:100%;background:#27ae60;color:white;border:none;padding:12px;border-radius:6px;font-weight:700;font-size:14px;cursor:pointer">Invia Richiesta</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 <a href="#">Elagraoui Consulting</a> — Consulenza Energetica B2B</p>
+    <p>Pesaro Urbino, Marche | P.IVA: in definizione</p>
+    <p style="margin-top:8px">📧 consulente@elagraoui.it | 📱 +39 388 3228335</p>
+</footer>
+
+<a href="https://wa.me/393883228335" class="whatsapp-float" target="_blank">💬</a>
+
+</body>
+</html>
