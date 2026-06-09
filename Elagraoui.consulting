@@ -14,17 +14,25 @@
         .hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:50px;background:#f0f2f5;clip-path:polygon(0 100%,100% 0,100% 100%)}
         .hero h1{font-size:36px;margin-bottom:10px;animation:fadeIn 1s}
         .hero p{font-size:18px;opacity:0.9;max-width:600px;margin:0 auto 20px}
-        .hero .btn{display:inline-block;background:#27ae60;color:white;padding:14px 30px;border-radius:8px;text-decoration:none;font-weight:700;font-size:16px;margin:10px;transition:transform 0.3s}
-        .hero .btn:hover{transform:translateY(-3px)}
+        .hero .btn{display:inline-block;background:#27ae60;color:white;padding:14px 30px;border-radius:8px;text-decoration:none;font-weight:700;font-size:16px;margin:10px;transition:transform 0.3s, background 0.3s}
+        .hero .btn:hover{transform:translateY(-3px);background:#229954}
         .hero .btn-outline{background:transparent;border:2px solid white}
+        .hero .btn-outline:hover{background:white;color:#1a3a5c}
         
         @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
         
         nav{background:white;padding:15px 30px;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,0.1);display:flex;justify-content:space-between;align-items:center}
         nav .logo{font-size:22px;font-weight:700;color:#1a3a5c;text-decoration:none}
         nav .logo span{color:#27ae60}
-        nav a{color:#1a3a5c;text-decoration:none;margin-left:20px;font-weight:500;font-size:14px}
+        nav .nav-links{display:flex;align-items:center}
+        nav a{color:#1a3a5c;text-decoration:none;margin-left:20px;font-weight:500;font-size:14px;transition:color 0.3s}
         nav a:hover{color:#27ae60}
+        
+        .hamburger{display:none;flex-direction:column;cursor:pointer;z-index:101}
+        .hamburger span{width:25px;height:3px;background:#1a3a5c;margin:5px 0;transition:0.3s}
+        .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(10px, 10px)}
+        .hamburger.active span:nth-child(2){opacity:0}
+        .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(7px, -7px)}
         
         section{padding:60px 20px}
         .container{max-width:1100px;margin:0 auto}
@@ -48,16 +56,32 @@
         .contact-card{background:white;padding:25px;border-radius:12px;box-shadow:0 3px 15px rgba(0,0,0,0.06)}
         .contact-card .icon{font-size:30px;margin-bottom:10px}
         
+        .form-container{max-width:500px;margin:30px auto 0;background:white;padding:25px;border-radius:12px;box-shadow:0 3px 15px rgba(0,0,0,0.06)}
+        .form-container h3{text-align:center;margin-bottom:15px;color:#1a3a5c}
+        .form-container input,
+        .form-container textarea,
+        .form-container button{width:100%;padding:10px;margin-bottom:10px;border:1px solid #ddd;border-radius:6px;font-family:inherit}
+        .form-container textarea{resize:vertical;border:1px solid #ddd}
+        .form-container button{background:#27ae60;color:white;border:none;font-weight:700;font-size:14px;cursor:pointer;transition:background 0.3s}
+        .form-container button:hover{background:#229954}
+        
         footer{background:#0a0f1a;color:white;text-align:center;padding:30px;font-size:13px}
         footer a{color:#27ae60;text-decoration:none}
         
-        .whatsapp-float{position:fixed;bottom:20px;right:20px;background:#25D366;color:white;width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 5px 20px rgba(37,211,102,0.4);z-index:999;text-decoration:none;animation:pulse 2s infinite}
+        .whatsapp-float{position:fixed;bottom:20px;right:20px;background:#25D366;color:white;width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,0.15);animation:pulse 2s infinite;transition:transform 0.3s}
+        .whatsapp-float:hover{transform:scale(1.1)}
         @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
         
         @media(max-width:768px){
             .hero h1{font-size:26px}
-            nav a{display:none}
-            nav::after{content:'☰';font-size:24px;cursor:pointer}
+            nav{flex-direction:row}
+            .nav-links{display:none;flex-direction:column;position:absolute;top:60px;left:0;right:0;background:white;padding:20px;box-shadow:0 5px 15px rgba(0,0,0,0.1)}
+            .nav-links.active{display:flex}
+            .nav-links a{margin:10px 0;margin-left:0}
+            .hamburger{display:flex}
+            .hero p{font-size:16px}
+            h2{font-size:24px}
+            .form-container{margin:20px auto 0}
         }
     </style>
 </head>
@@ -65,11 +89,16 @@
 
 <nav>
     <a href="#" class="logo">⚡ Elagraoui<span>Consulting</span></a>
-    <div>
+    <div class="nav-links" id="navLinks">
         <a href="#servizi">Servizi</a>
         <a href="#chi-siamo">Chi Siamo</a>
         <a href="#risultati">Risultati</a>
         <a href="#contatti">Contatti</a>
+    </div>
+    <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
     </div>
 </nav>
 
@@ -137,8 +166,9 @@
         <h2>Chi Siamo</h2>
         <p class="subtitle">Elagraoui Consulting è il partner ideale per le aziende che vogliono ridurre i costi energetici</p>
         <div class="card" style="max-width:700px;margin:0 auto;text-align:left">
-            <p style="margin-bottom:10px"><strong>Elagraoui Consulting</strong> opera nel territorio di <strong>Pesaro, Urbino e Marche</strong> offrendo servizi di consulenza energetica B2B.</p>
-            <p style="margin-bottom:10px">Il nostro obiettivo è supportare le imprese nell'<strong>ottimizzazione dei costi</strong> legati alle utenze e nell'individuazione di strategie su misura per la <strong>transizione energetica</strong>.</p>
+            <p style="margin-bottom:10px"><strong>Elagraoui Consulting</strong> opera nel territorio di <strong>Pesaro, Urbino e Marche</strong> offrendo servizi di consulenza energetica B2B specializzati.</p>
+            <p style="margin-bottom:10px">Il nostro obiettivo è supportare le imprese nell'<strong>ottimizzazione dei costi</strong> legati alle utenze energetiche e nell'individuazione di strategie su misura per ridurre i consumi e le spese.</p>
+            <p style="margin-bottom:10px">Con <strong>esperienza consolidata</strong> nel settore, analizziamo le vostre bollette, negoziamo le migliori tariffe disponibili e proponiamo soluzioni innovative per la transizione energetica.</p>
             <p>Seguiamo con interesse le aziende del territorio che si distinguono per qualità e radicamento locale, offrendo <strong>consulenza personalizzata e senza impegno</strong>.</p>
         </div>
     </div>
@@ -152,12 +182,12 @@
             <div class="contact-card">
                 <div class="icon">📧</div>
                 <h3>Email</h3>
-                <p>consulente@elagraoui.it</p>
+                <p><a href="mailto:consulente@elagraoui.it" style="color:#27ae60;text-decoration:none">consulente@elagraoui.it</a></p>
             </div>
             <div class="contact-card">
                 <div class="icon">📱</div>
                 <h3>Telefono</h3>
-                <p>+39 388 3228335</p>
+                <p><a href="tel:+393883228335" style="color:#27ae60;text-decoration:none">+39 388 3228335</a></p>
             </div>
             <div class="contact-card">
                 <div class="icon">📍</div>
@@ -167,19 +197,19 @@
             <div class="contact-card">
                 <div class="icon">🌐</div>
                 <h3>Web</h3>
-                <p>www.elagraoui.it</p>
+                <p><a href="https://www.elagraoui.it" target="_blank" style="color:#27ae60;text-decoration:none">www.elagraoui.it</a></p>
             </div>
         </div>
         
-        <div style="max-width:500px;margin:30px auto 0;background:white;padding:25px;border-radius:12px;box-shadow:0 3px 15px rgba(0,0,0,0.06)">
-            <h3 style="text-align:center;margin-bottom:15px">Richiedi un Audit Gratuito</h3>
-            <form action="https://formspree.io/f/your-form-id" method="POST">
-                <input name="nome" placeholder="Nome e Cognome" required style="width:100%;padding:10px;margin-bottom:10px;border:1px solid #ddd;border-radius:6px;font-family:inherit">
-                <input name="azienda" placeholder="Nome Azienda" style="width:100%;padding:10px;margin-bottom:10px;border:1px solid #ddd;border-radius:6px;font-family:inherit">
-                <input name="email" placeholder="Email" type="email" required style="width:100%;padding:10px;margin-bottom:10px;border:1px solid #ddd;border-radius:6px;font-family:inherit">
-                <input name="telefono" placeholder="Telefono" style="width:100%;padding:10px;margin-bottom:10px;border:1px solid #ddd;border-radius:6px;font-family:inherit">
-                <textarea name="messaggio" placeholder="Descrivi brevemente la tua attività e i tuoi consumi" rows="3" style="width:100%;padding:10px;margin-bottom:10px;border:1px solid #ddd;border-radius:6px;font-family:inherit"></textarea>
-                <button type="submit" style="width:100%;background:#27ae60;color:white;border:none;padding:12px;border-radius:6px;font-weight:700;font-size:14px;cursor:pointer">Invia Richiesta</button>
+        <div class="form-container">
+            <h3>Richiedi un Audit Gratuito</h3>
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <input type="text" name="nome" placeholder="Nome e Cognome" required>
+                <input type="text" name="azienda" placeholder="Nome Azienda">
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="tel" name="telefono" placeholder="Telefono">
+                <textarea name="messaggio" placeholder="Descrivi brevemente la tua attività e i tuoi consumi" rows="4" required></textarea>
+                <button type="submit">Invia Richiesta</button>
             </form>
         </div>
     </div>
@@ -191,7 +221,26 @@
     <p style="margin-top:8px">📧 consulente@elagraoui.it | 📱 +39 388 3228335</p>
 </footer>
 
-<a href="https://wa.me/393883228335" class="whatsapp-float" target="_blank">💬</a>
+<a href="https://wa.me/393883228335" class="whatsapp-float" target="_blank" title="Contattaci su WhatsApp">💬</a>
+
+<script>
+    // Mobile menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    
+    hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
+    
+    // Close menu when a link is clicked
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', function() {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+        });
+    });
+</script>
 
 </body>
 </html>
